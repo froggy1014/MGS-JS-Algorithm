@@ -26,8 +26,9 @@ function solution(str){
     }
     // sH[x]의 value값이 0까지 되었다면 
     // set 객체에 굳이 넣지않고 skip합니다. 
-    // while문에서 value가 0으로 나오기에 false로
-    // 인식이되어 다음 value값이 while로 진입을 못함 
+    // 여기서 value값이 0이 되었다면 삭제했다는 의미이기에
+    // 만약 다음 value도 0까지 내려가 삭제를 해야할 상황일 경우에
+    // -1 까지 감소를 하기때문에 원래 답보다 +1이 되는 것이다. 
     if(sH[x] === 0) continue;
     set.add(sH[x]);
   }

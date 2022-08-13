@@ -1,27 +1,39 @@
-function solution(str, k){
+// function solution(str){
+//   let sH = {};
+//   let result = 0;
+//   let odd = 0;
+  
+//   for(let x of str){
+//     sH[x] = (sH[x]||0)+1;
+//   }
+
+//   for(let x of Object.keys(sH)){
+//     result += sH[x];
+//     if(sH[x] % 2 === 1 ){
+//       if(odd >= 1){
+//         result--;
+//       } 
+//       odd++;
+//     } 
+//   }
+
+//   return result
+// }
+
+function solution(str){
   let sH = {};
-  let result = 0;
   let odd = 0;
   
-
   for(let x of str){
     sH[x] = (sH[x]||0)+1;
   }
 
   for(let x of Object.keys(sH)){
-    result += sH[x];
-    if(sH[x] % 2 === 1 ){
-      if(odd >= 1){
-        result--;
-      } 
-      odd++;
-    } 
+    if(sH[x] % 2 === 1 ) odd++; 
   }
 
-  if(Object.keys(sH).length === odd &&
-     result/Object.keys(sH).length === 1
-    ) return 1;
-
-  return result
+  return odd > 0 ? str.length-odd+1 : str.length;
 }
-console.log(solution("qqqwww"))
+console.log(solution("abcbbbccaa"));
+console.log(solution("abcde"));
+console.log(solution("ccc"));

@@ -1,24 +1,18 @@
-// function solution(nums){
-//   return nums.sort((a, b) => {return a-b} )
-// }
-// const nums = [2, 8, 3, 6, 1, 7, 5, 9];
-// console.log(solution(nums))
+// 선택정렬
 
 function solution(nums){
   let answer = nums;
+  let n = nums.length
 
-  for(let i = 0; i < nums.length-1; i++){
-    let idx = i;
-    for(let j = i+1 ; j < nums.length; j++){
-      if(nums[j] < nums[idx]) idx = j;
+  for(let i = 0; i < n-1; i++){
+    let minIdx = i;
+    for(let j = i+1 ; j < n; j++){
+      if(nums[j] < nums[minIdx]) minIdx = j;
     }
-    // let tmp = nums[i];
-    // nums[i] = nums[idx];
-    // nums[idx] = tmp
-    [nums[i], nums[idx]] = [nums[idx], nums[i]]
+    [nums[i], nums[minIdx]] = [nums[minIdx], nums[i]]
   }
-  
   return answer;
 }
-const nums = [2, 8, 3, 6, 1, 7, 5, 9];
+const nums = [5,4,2,1,3] ;
 console.log(solution(nums))
+
